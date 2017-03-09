@@ -38,14 +38,14 @@ public class ChatHandler extends TextWebSocketHandler {
 
         if (StringUtils.isEmpty(name)) {
             Message alreadyUsed = new Message("Pseudo obligatoire", SYSTEM_NAME);
-            send(session, alreadyUsed);
+            //send(session, alreadyUsed);
             close(session);
             return;
         }
 
         if (sessions.containsValue(name) || SYSTEM_NAME.equalsIgnoreCase(name)) {
             Message alreadyUsed = new Message("Pseudo déjà attribué", SYSTEM_NAME);
-            send(session, alreadyUsed);
+            //send(session, alreadyUsed);
             close(session);
             return;
         }
@@ -55,7 +55,7 @@ public class ChatHandler extends TextWebSocketHandler {
         notifyUpdateList();
 
         Message welcome = new Message("Connecté en tant que " + m.getText(), SYSTEM_NAME);
-        send(session, welcome);
+        //send(session, welcome);
     }
 
     private void notifyUpdateList() {
